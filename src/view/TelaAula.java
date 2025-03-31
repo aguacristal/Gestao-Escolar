@@ -4,6 +4,12 @@
  */
 package view;
 
+import gestaoescolar.Aula;
+import gestaoescolar.AulaDAO;
+import gestaoescolar.Materia;
+import gestaoescolar.Professor;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Juliana
@@ -80,6 +86,11 @@ public class TelaAula extends javax.swing.JFrame {
 
         btncad.setBackground(new java.awt.Color(255, 153, 0));
         btncad.setText("CADASTRAR");
+        btncad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -167,6 +178,41 @@ public class TelaAula extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btncadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadActionPerformed
+        Aula aul = new Aula();
+        AulaDAO dao = new AulaDAO();
+        boolean status;
+        int resposta;
+
+        aul.setData(txtdata.getText());
+        aul.setHoraInicio(txtinicio.getText());
+        aul.setHoraFim(txtfim.getText());
+        Materia materia = new Materia();
+        materia.setId(Integer.parseInt(txtmat.getText())); // Define o ID da matéria
+        aul.setMateria(materia);
+
+        Professor professor = new Professor();
+        professor.setId(Integer.parseInt(txtprof.getText())); // Define o ID do professor
+        aul.setProfessor(professor);
+        
+
+        status = dao.conectar();
+        if (!status) {
+            JOptionPane.showMessageDialog(null, "Erro de conexão");
+        } else {
+            resposta = dao.salvar(aul); // Corrigido: removido o `/` errado
+
+           if (resposta == 1062) { // Código de erro de chave duplicada
+        JOptionPane.showMessageDialog(null, "Aula já cadastrada.");
+        } else if (resposta == 1) { // Verifica se a inserção foi bem-sucedida
+         JOptionPane.showMessageDialog(null, "Aula cadastrada com sucesso.");
+        } else {
+        JOptionPane.showMessageDialog(null, "Erro ao tentar inserir a aula.");
+        }
+            dao.desconectar();
+        }
+    }//GEN-LAST:event_btncadActionPerformed
 
     /**
      * @param args the command line arguments
