@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotaDAO {
+public class ProfessorDAO {
     private Connection conn;
     private PreparedStatement st;
     private ResultSet rs;
@@ -30,19 +30,15 @@ public class NotaDAO {
         }
     }
 
-    public int salvar(Nota nota) {
+    public int salvar(Professor prof) {
         if (!conectar()) {
             return -1;
         }
-        String sql = "INSERT INTO notas (id, aluno_id, materia_id, nota, data_lancamento) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO professores (id, materia_id) VALUES (?, ?, ?)";
         try {
             st = conn.prepareStatement(sql);
-            st.setInt(1, nota.getId());
-            st.setInt(2, nota.getAluno().getId());
-            st.setInt(3, nota.getMateria().getId());
-            st.setDouble(4, nota.getNota());
-            st.setString(5, nota.getDataLancamento());
-            
+            st.setInt(1, prof.getId());
+            st.setInt(2, prof.getMateria().getId());
             return st.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Erro ao salvar: " + ex.getMessage());
@@ -52,30 +48,25 @@ public class NotaDAO {
         }
     }
 
-    public Nota consultar(int id) {
+    public Professor consultar(int id) {
         if (!conectar()) {
             return null;
         }
-        String sql = "SELECT * FROM notas WHERE id = ?";
+        String sql = "SELECT * FROM professores WHERE id = ?";
         try {
             st = conn.prepareStatement(sql);
             st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()) {
-                Nota nota = new Nota();
-                nota.setId(rs.getInt("id"));
-                nota.setNota(rs.getDouble("nota"));
-                nota.setDataLancamento(rs.getString("data_lancamento"));
+                Professor prof = new Professor();
+                prof.setId(rs.getInt("id"));
                 
-                Aluno aluno = new Aluno();
-                aluno.setId(rs.getInt("aluno_id"));
-                nota.setAluno(aluno);
                 
                 Materia materia = new Materia();
                 materia.setId(rs.getInt("materia_id"));
-                nota.setMateria(materia);
+                prof.setMateria(materia);
                 
-                return nota;
+                return prof;
             }
         } catch (SQLException ex) {
             System.out.println("Erro ao consultar: " + ex.getMessage());
@@ -85,38 +76,36 @@ public class NotaDAO {
         return null;
     }
 
-    public List<Nota> listarNotasPorAluno(int alunoId) {
-        List<Nota> listaNotas = new ArrayList<>();
+    public List<Professor> listarProfessoresPorMateria(int materiaId) {
+        List<Professor> listaProfessores = new ArrayList<>();
         if (!conectar()) {
-            return listaNotas;
+            return listaProfessores;
         }
-        String sql = "SELECT * FROM notas WHERE aluno_id = ?";
+        String sql = "SELECT * FROM professores WHERE materia_id = ?";
         try {
             st = conn.prepareStatement(sql);
-            st.setInt(1, alunoId);
+            st.setInt(1, materiaId);
             rs = st.executeQuery();
             while (rs.next()) {
-                Nota nota = new Nota();
-                nota.setId(rs.getInt("id"));
-                nota.setNota(rs.getDouble("nota"));
-                nota.setDataLancamento(rs.getString("data_lancamento"));
+                Professor prof = new Professor();
+                prof.setId(rs.getInt("id"));
                 
-                Aluno aluno = new Aluno();
-                aluno.setId(rs.getInt("aluno_id"));
-                nota.setAluno(aluno);
                 
                 Materia materia = new Materia();
                 materia.setId(rs.getInt("materia_id"));
-                nota.setMateria(materia);
+                prof.setMateria(materia);
                 
-                listaNotas.add(nota);
+                listaProfessores.add(prof);
             }
         } catch (SQLException ex) {
-            System.out.println("Erro ao listar notas: " + ex.getMessage());
+            System.out.println("Erro ao listar professores: " + ex.getMessage());
         } finally {
             desconectar();
         }
-        return listaNotas;
+        return listaProfessores;
     }
 }
+
+
+
 
