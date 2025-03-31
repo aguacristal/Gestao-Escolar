@@ -5,11 +5,9 @@
         <group>
             <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/view/TelaInicial.java</file>
             <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/view/TelaAula.java</file>
-            <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/gestaoescolar/Aula.java</file>
-            <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/gestaoescolar/Aluno.java</file>
-            <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/gestaoescolar/AlunoDAO.java</file>
-            <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/view/TelaResponsavel.java</file>
+            <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/view/TelaMateria.java</file>
             <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/gestaoescolar/AulaDAO.java</file>
+            <file>file:/C:/Users/Juliana/Documents/NetBeansProjects/GestaoEscolar/src/view/TelaMenu.java</file>
         </group>
     </open-files>
 </project-private>
