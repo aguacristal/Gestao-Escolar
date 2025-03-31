@@ -5,7 +5,6 @@
 package gestaoescolar;
 public class Professor {
     private int id;
-    private Usuario usuario;
     private Materia materia;
 
     public int getId() {
@@ -14,14 +13,6 @@ public class Professor {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public Materia getMateria() {
