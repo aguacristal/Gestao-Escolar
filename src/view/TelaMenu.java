@@ -54,6 +54,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         btnmateria.setBackground(new java.awt.Color(255, 153, 0));
         btnmateria.setText("MATÉRIA");
+        btnmateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmateriaActionPerformed(evt);
+            }
+        });
 
         btnnota.setBackground(new java.awt.Color(255, 153, 0));
         btnnota.setText("NOTA");
@@ -120,6 +125,12 @@ public class TelaMenu extends javax.swing.JFrame {
          //Mostrando o form quando clicar no botão
          alu.setVisible(true);
     }//GEN-LAST:event_btnaulaActionPerformed
+
+    private void btnmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmateriaActionPerformed
+       TelaMateria alu = new TelaMateria();
+         //Mostrando o form quando clicar no botão
+         alu.setVisible(true);
+    }//GEN-LAST:event_btnmateriaActionPerformed
 
     /**
      * @param args the command line arguments

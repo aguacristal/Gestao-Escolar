@@ -5,19 +5,20 @@
 package view;
 
 import gestaoescolar.Materia;
-import gestaoescolar.MateriaDAO;
+import gestaoescolar.Professor;
+import gestaoescolar.ProfessorDAO;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Juliana
  */
-public class TelaMateria extends javax.swing.JFrame {
+public class TelaProfessor extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaMateria
+     * Creates new form TelaProfesor
      */
-    public TelaMateria() {
+    public TelaProfessor() {
         initComponents();
     }
 
@@ -34,52 +35,41 @@ public class TelaMateria extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtnome = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtdescricao = new javax.swing.JTextArea();
-        btncad = new javax.swing.JButton();
+        txtmat = new javax.swing.JTextField();
+        txtusu = new javax.swing.JTextField();
         btnvol = new javax.swing.JButton();
+        btncad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("CADASTRO DE MATÉRIA");
+        jLabel1.setText("CADASTRO DE PROFESOR");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("NOME:");
+        jLabel2.setText("USUÁRIO:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("DESCRIÇÃO:");
+        jLabel3.setText("MATÉRIA:");
 
-        txtnome.setBackground(new java.awt.Color(255, 153, 0));
-        txtnome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnomeActionPerformed(evt);
-            }
-        });
+        txtmat.setBackground(new java.awt.Color(255, 153, 0));
 
-        jScrollPane1.setBackground(new java.awt.Color(255, 153, 0));
-
-        txtdescricao.setBackground(new java.awt.Color(255, 153, 0));
-        txtdescricao.setColumns(20);
-        txtdescricao.setRows(5);
-        jScrollPane1.setViewportView(txtdescricao);
-
-        btncad.setBackground(new java.awt.Color(255, 153, 0));
-        btncad.setText("CADASTRAR");
-        btncad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncadActionPerformed(evt);
-            }
-        });
+        txtusu.setBackground(new java.awt.Color(255, 153, 0));
 
         btnvol.setBackground(new java.awt.Color(255, 153, 0));
         btnvol.setText("VOLTAR");
         btnvol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvolActionPerformed(evt);
+            }
+        });
+
+        btncad.setBackground(new java.awt.Color(255, 153, 0));
+        btncad.setText("CADASTRAR");
+        btncad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncadActionPerformed(evt);
             }
         });
 
@@ -90,46 +80,45 @@ public class TelaMateria extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(99, 99, 99)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtmat, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(btncad)
-                        .addGap(100, 100, 100)
-                        .addComponent(btnvol)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                                .addComponent(txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(125, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(btnvol)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btncad)
+                .addGap(108, 108, 108))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtnome)
-                        .addGap(1, 1, 1))
-                    .addComponent(jLabel2))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtusu))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btncad)
-                    .addComponent(btnvol))
-                .addGap(18, 18, 18))
+                    .addComponent(txtmat))
+                .addGap(56, 56, 56)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnvol)
+                    .addComponent(btncad))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,42 +135,40 @@ public class TelaMateria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnomeActionPerformed
-
-    private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
-        TelaMenu alu = new TelaMenu();
-         //Mostrando o form quando clicar no botão
-         alu.setVisible(true);
-    }//GEN-LAST:event_btnvolActionPerformed
-
     private void btncadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadActionPerformed
-              Materia mat = new Materia();
-        MateriaDAO dao = new MateriaDAO();
+      Professor prof = new Professor();
+        ProfessorDAO dao = new ProfessorDAO();
         boolean status;
         int resposta;
 
-        mat.setNome(txtnome.getText());
-        mat.setDescricao(txtdescricao.getText());
+        Materia materia = new Materia();
+        materia.setId(Integer.parseInt(txtmat.getText())); 
+        prof.setMateria(materia);
+        prof.setId(Integer.parseInt(txtusu.getText()));
+        
         
 
         status = dao.conectar();
         if (!status) {
             JOptionPane.showMessageDialog(null, "Erro de conexão");
         } else {
-            resposta = dao.salvar(mat); // Corrigido: removido o `/` errado
+            resposta = dao.salvar(prof); // Corrigido: removido o `/` errado
 
            if (resposta == 1062) { // Código de erro de chave duplicada
-        JOptionPane.showMessageDialog(null, "Materia já cadastrada.");
+        JOptionPane.showMessageDialog(null, "Professor já cadastrado.");
         } else if (resposta == 1) { // Verifica se a inserção foi bem-sucedida
-         JOptionPane.showMessageDialog(null, "materia cadastrada com sucesso.");
+         JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso.");
         } else {
-        JOptionPane.showMessageDialog(null, "Erro ao tentar inserir a materia.");
+        JOptionPane.showMessageDialog(null, "Erro ao tentar inserir a professor.");
         }
             dao.desconectar();
         }
     }//GEN-LAST:event_btncadActionPerformed
+
+    private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
+        TelaMenu men = new TelaMenu();
+        men.setVisible(true);
+    }//GEN-LAST:event_btnvolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,20 +187,21 @@ public class TelaMateria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaMateria().setVisible(true);
+                new TelaProfessor().setVisible(true);
             }
         });
     }
@@ -225,8 +213,7 @@ public class TelaMateria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtdescricao;
-    private javax.swing.JTextField txtnome;
+    private javax.swing.JTextField txtmat;
+    private javax.swing.JTextField txtusu;
     // End of variables declaration//GEN-END:variables
 }
