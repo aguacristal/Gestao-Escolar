@@ -166,6 +166,7 @@ public class TelaProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_btncadActionPerformed
 
     private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
+        this.dispose();
         TelaMenu men = new TelaMenu();
         men.setVisible(true);
     }//GEN-LAST:event_btnvolActionPerformed

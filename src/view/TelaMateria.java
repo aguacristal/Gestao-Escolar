@@ -151,6 +151,7 @@ public class TelaMateria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnomeActionPerformed
 
     private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
+        this.dispose();
         TelaMenu alu = new TelaMenu();
          //Mostrando o form quando clicar no botão
          alu.setVisible(true);

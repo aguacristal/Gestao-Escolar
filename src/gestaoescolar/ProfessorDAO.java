@@ -34,7 +34,7 @@ public class ProfessorDAO {
         if (!conectar()) {
             return -1;
         }
-        String sql = "INSERT INTO professores (id, materia_id) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO professores (id, materias_id) VALUES (?, ?)";
         try {
             st = conn.prepareStatement(sql);
             st.setInt(1, prof.getId());
@@ -81,7 +81,7 @@ public class ProfessorDAO {
         if (!conectar()) {
             return listaProfessores;
         }
-        String sql = "SELECT * FROM professores WHERE materia_id = ?";
+        String sql = "SELECT * FROM professores WHERE materias_id = ?";
         try {
             st = conn.prepareStatement(sql);
             st.setInt(1, materiaId);
@@ -92,7 +92,7 @@ public class ProfessorDAO {
                 
                 
                 Materia materia = new Materia();
-                materia.setId(rs.getInt("materia_id"));
+                materia.setId(rs.getInt("materias_id"));
                 prof.setMateria(materia);
                 
                 listaProfessores.add(prof);

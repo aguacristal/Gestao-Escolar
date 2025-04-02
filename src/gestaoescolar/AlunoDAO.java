@@ -41,9 +41,14 @@ public class AlunoDAO {
         try {
             st = conn.prepareStatement("INSERT INTO alunos (id, matricula, turma, responsavel_id) VALUES (?, ?, ?, ?)");
             st.setInt(1, alu.getId());
+            
             st.setString(2, alu.getMatricula());
             st.setString(3, alu.getTurma());
-           st.setInt(4, alu.getResponsavel().getId());
+           if (alu.getResponsavel() != null) {
+    st.setInt(4, alu.getResponsavel().getId());
+} else {
+    st.setNull(4, java.sql.Types.INTEGER);
+}
             status = st.executeUpdate();
             return status; // Retorna 1 se for bem-sucedido
         } catch (SQLException ex) {
@@ -70,9 +75,10 @@ public class AlunoDAO {
                 alu.setId(rs.getInt("id"));
                 alu.setMatricula(rs.getString("matricula"));
                 alu.setTurma(rs.getString("turma"));
-                 int responsavelId = rs.getInt("responsavel");
-            Responsavel responsavel = setId(responsavelId);
-            alu.setResponsavel(responsavel);
+                int responsavelId = rs.getInt("responsavel_id");
+                Responsavel responsavel = new Responsavel();
+                responsavel.setId(responsavelId);
+                alu.setResponsavel(responsavel);
                 return alu;
             } else {
                 return null; // Retorna null se não encontrar o filme

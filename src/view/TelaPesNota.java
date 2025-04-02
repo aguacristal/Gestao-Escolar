@@ -29,36 +29,44 @@ public class TelaPesNota extends javax.swing.JFrame {
     }
 
       private void preencherTabela() {
-          NotaDAO notaDao = new NotaDAO();
-        RecuperacaoDAO recDao = new RecuperacaoDAO();
-        int alunoId = Integer.parseInt(txtNomeAluno.getText());
+         NotaDAO notaDao = new NotaDAO();
+    RecuperacaoDAO recDao = new RecuperacaoDAO();
+
+    String textoIdAluno = txtNomeAluno.getText().trim();
+
+    try {
+        int alunoId = Integer.parseInt(textoIdAluno);
         
         List<Nota> listaNotas = notaDao.listarNotasPorAluno(alunoId);
         List<Recuperacao> listaRecuperacoes = recDao.listarRecuperacoesPorAluno(alunoId);
-        
+
         DefaultTableModel tabela = (DefaultTableModel) tblAlunoNotas.getModel();
         tabela.setNumRows(0);
         tblAlunoNotas.setRowSorter(new TableRowSorter<>(tabela));
-        
+
         for (Nota nota : listaNotas) {
             tabela.addRow(new Object[]{
                 nota.getAluno().getId(),
                 nota.getDataLancamento(),
-                nota.getMateria().getNome(),
+                nota.getMateria().getId(),
                 nota.getNota(),
                 "Nota Regular"
             });
         }
-        
+
         for (Recuperacao rec : listaRecuperacoes) {
             tabela.addRow(new Object[]{
                 rec.getAluno().getId(),
                 rec.getDataRecuperacao(),
-                rec.getMateria().getNome(),
+                rec.getMateria().getId(),
                 rec.getNota(),
                 "Recuperação"
             });
         }
+
+    } catch (NumberFormatException e) {
+        
+    }
       }
         
     
@@ -180,7 +188,7 @@ public class TelaPesNota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNomeAlunoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNomeAlunoCaretUpdate
-       preencherTabela();
+    preencherTabela();
     }//GEN-LAST:event_txtNomeAlunoCaretUpdate
 
     private void btnpesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqActionPerformed
@@ -197,7 +205,8 @@ public class TelaPesNota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnpesqActionPerformed
 
     private void btnvoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvoltarActionPerformed
-      TelaMenu men = new TelaMenu();
+      this.dispose();
+      TelaNota men = new TelaNota();
       men.setVisible(true);
     }//GEN-LAST:event_btnvoltarActionPerformed
 

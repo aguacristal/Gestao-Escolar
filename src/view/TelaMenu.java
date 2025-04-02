@@ -147,34 +147,34 @@ public class TelaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaulaActionPerformed
-         TelaAula alu = new TelaAula();
+          this.dispose();TelaAula alu = new TelaAula();
          //Mostrando o form quando clicar no botão
          alu.setVisible(true);
     }//GEN-LAST:event_btnaulaActionPerformed
 
     private void btnmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmateriaActionPerformed
-       TelaMateria alu = new TelaMateria();
+        this.dispose();TelaMateria alu = new TelaMateria();
          //Mostrando o form quando clicar no botão
          alu.setVisible(true);
     }//GEN-LAST:event_btnmateriaActionPerformed
 
     private void btnvoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvoltarActionPerformed
-        TelaInicial ini = new TelaInicial();
+         this.dispose();TelaInicial ini = new TelaInicial();
         ini.setVisible(true);
     }//GEN-LAST:event_btnvoltarActionPerformed
 
     private void btnnotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnotaActionPerformed
-       TelaNota ini = new TelaNota();
+        this.dispose();TelaNota ini = new TelaNota();
         ini.setVisible(true);
     }//GEN-LAST:event_btnnotaActionPerformed
 
     private void btnrecuperacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrecuperacaoActionPerformed
-       TelaRecuperacao ini = new TelaRecuperacao();
+        this.dispose();TelaRecuperacao ini = new TelaRecuperacao();
         ini.setVisible(true);
     }//GEN-LAST:event_btnrecuperacaoActionPerformed
 
     private void btnprofessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprofessorActionPerformed
-       TelaProfessor ini = new TelaProfessor();
+        this.dispose();TelaProfessor ini = new TelaProfessor();
         ini.setVisible(true);
     }//GEN-LAST:event_btnprofessorActionPerformed
 

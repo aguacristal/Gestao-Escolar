@@ -45,6 +45,7 @@ public class TelaUsuario extends javax.swing.JFrame {
         txtsenha = new javax.swing.JTextField();
         btncadastrar = new javax.swing.JButton();
         btnvoltar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -110,6 +111,9 @@ public class TelaUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(btnvoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 100, 40));
 
+        jLabel8.setText("(yyyy-mm-dd)");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,8 +130,8 @@ public class TelaUsuario extends javax.swing.JFrame {
 
     private void btncadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadastrarActionPerformed
             Usuario usu = new Usuario();
-            UsuarioDAO dao =new UsuarioDAO();
-            boolean status;
+            UsuarioDAO dao = new UsuarioDAO();
+            boolean status = dao.conectar();
             int resposta;
             
             usu.setNome(txtnome.getText());
@@ -136,25 +140,32 @@ public class TelaUsuario extends javax.swing.JFrame {
             usu.setTipo(txttipo.getText());
             usu.setDataCadastro(txtdata.getText());
             
-             status = dao.conectar();
-            if(!status){
-                JOptionPane.showMessageDialog(null,"Erro de conexão");
+           
+            if (!status) {
+            JOptionPane.showMessageDialog(null, "Erro de conexão com o banco de dados!");
                  } else {resposta = dao.salvar(usu); // Método fictício para demonstrar
-        if (resposta == 1062){
-            JOptionPane.showMessageDialog(null, "Usuario já foi cadastrado");
-        } else if (resposta == 1) { // Assumindo que 1 significa sucesso
-            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro ao tentar inserir dados");
-        }
-        dao.desconectar();
+        try {
+    resposta = dao.salvar(usu);
+    if (resposta == 1062) {
+        JOptionPane.showMessageDialog(null, "Usuário já foi cadastrado!");
+    } else if (resposta == 1) { 
+        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
+    } else {
+        JOptionPane.showMessageDialog(null, "Erro ao tentar inserir os dados.");
     }
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getMessage());
+} finally {
+    dao.desconectar();
+        }}
     }//GEN-LAST:event_btncadastrarActionPerformed
 
     private void btnvoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvoltarActionPerformed
+         this.dispose();
          TelaInicial ini = new TelaInicial();
-         //Mostrando o form quando clicar no botão
+   
          ini.setVisible(true);
+         
     }//GEN-LAST:event_btnvoltarActionPerformed
 
     /**
@@ -202,6 +213,7 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtdata;
     private javax.swing.JTextField txtemail;

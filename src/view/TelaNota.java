@@ -180,47 +180,61 @@ public class TelaNota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadActionPerformed
+        if (txtaluno.getText().trim().isEmpty() || 
+        txtmateria.getText().trim().isEmpty() || 
+        txtnota.getText().trim().isEmpty() || 
+        txtdata.getText().trim().isEmpty()) {
+
+        JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");
+        return; // Sai do método para evitar erro
+    }
+
+    try {
         Nota not = new Nota();
         NotaDAO dao = new NotaDAO();
         boolean status;
         int resposta;
 
         Aluno aluno = new Aluno();
-        aluno.setId(Integer.parseInt(txtaluno.getText())); // Define o ID da matéria
+        aluno.setId(Integer.parseInt(txtaluno.getText().trim())); // Converte o ID do aluno
         not.setAluno(aluno);
+
         Materia materia = new Materia();
-        materia.setId(Integer.parseInt(txtmateria.getText())); // Define o ID da matéria
+        materia.setId(Integer.parseInt(txtmateria.getText().trim())); // Converte o ID da matéria
         not.setMateria(materia);
-        not.setNota(Double.parseDouble(txtnota.getText())); // Correção da sintaxe
-        not.setDataLancamento(txtdata.getText());
-        
+
+        not.setNota(Double.parseDouble(txtnota.getText().trim())); // Converte a nota
+        not.setDataLancamento(txtdata.getText().trim());
 
         status = dao.conectar();
         if (!status) {
             JOptionPane.showMessageDialog(null, "Erro de conexão");
         } else {
-            resposta = dao.salvar(not); // Corrigido: removido o `/` errado
+            resposta = dao.salvar(not);
 
-           if (resposta == 1062) { // Código de erro de chave duplicada
-        JOptionPane.showMessageDialog(null, "Nota já cadastrada.");
-        } else if (resposta == 1) { // Verifica se a inserção foi bem-sucedida
-         JOptionPane.showMessageDialog(null, "Nota cadastrada com sucesso.");
-        } else {
-        JOptionPane.showMessageDialog(null, "Erro ao tentar inserir a nota.");
-        }
+            if (resposta == 1062) { // Código de erro de chave duplicada
+                JOptionPane.showMessageDialog(null, "Nota já cadastrada.");
+            } else if (resposta == 1) { // Inserção bem-sucedida
+                JOptionPane.showMessageDialog(null, "Nota cadastrada com sucesso.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao tentar inserir a nota.");
+            }
             dao.desconectar();
         }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "ID do aluno, ID da matéria e Nota devem ser números válidos.");
+    }
     }//GEN-LAST:event_btncadActionPerformed
 
     private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
-       TelaMenu alu = new TelaMenu();
-         //Mostrando o form quando clicar no botão
-         alu.setVisible(true);
+        this.dispose(); // Fecha a janela atual
+    TelaMenu alu = new TelaMenu();
+    alu.setVisible(true);
     }//GEN-LAST:event_btnvolActionPerformed
 
     private void btnpesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesActionPerformed
-        TelaPesNota Pn = new TelaPesNota();
-        Pn.setVisible(true);
+       TelaPesNota Pn = new TelaPesNota();
+    Pn.setVisible(true);
     }//GEN-LAST:event_btnpesActionPerformed
 
     /**

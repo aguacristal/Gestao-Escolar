@@ -127,22 +127,26 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnalunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalunoActionPerformed
+         this.dispose();
          TelaAluno alu = new TelaAluno();
          alu.setVisible(true);
     }//GEN-LAST:event_btnalunoActionPerformed
 
     private void btnprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprofActionPerformed
-         TelaProfessor alu = new TelaProfessor();
+          this.dispose();
+          TelaMenu alu = new TelaMenu();
          alu.setVisible(true);
     }//GEN-LAST:event_btnprofActionPerformed
 
     private void btncadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadActionPerformed
-        TelaUsuario alu = new TelaUsuario();
+         this.dispose();
+         TelaUsuario alu = new TelaUsuario();
          alu.setVisible(true);
     }//GEN-LAST:event_btncadActionPerformed
 
     private void btnpesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesActionPerformed
-         TelaPesUsuario alu = new TelaPesUsuario();
+          this.dispose();
+          TelaPesUsuario alu = new TelaPesUsuario();
          alu.setVisible(true);
     }//GEN-LAST:event_btnpesActionPerformed
 

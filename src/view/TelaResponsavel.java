@@ -165,6 +165,7 @@ public class TelaResponsavel extends javax.swing.JFrame {
     }//GEN-LAST:event_txtusuActionPerformed
 
     private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
+     this.dispose();
      TelaAluno alu = new TelaAluno();
      alu.setVisible(true);
 

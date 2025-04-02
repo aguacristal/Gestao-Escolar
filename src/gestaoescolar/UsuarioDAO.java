@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gestaoescolar;
 
 import java.sql.Connection;
@@ -17,7 +14,7 @@ public class UsuarioDAO {
     private ResultSet rs;
 
     // Método para conectar ao banco de dados
-    public boolean conectar() {
+   public boolean conectar() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestao_escolar_integrada", "root", "cla12345ra");
@@ -34,13 +31,12 @@ public class UsuarioDAO {
 
         int status;
         try {
-            st = conn.prepareStatement("INSERT INTO usuarios (id, nome, email, senha, tipo, data_cadastro) VALUES (?, ?, ?, ?, ?, ?)");
-            st.setInt(1, usu.getId());
-            st.setString(2, usu.getNome());
-            st.setString(3, usu.getEmail());
-           st.setString(4, usu.getSenha());
-            st.setString(5, usu.getTipo());
-             st.setString(6, usu.getDataCadastro());
+            st = conn.prepareStatement("INSERT INTO usuarios (nome, email, senha, tipo, data_cadastro) VALUES (?, ?, ?, ?, ?)");
+            st.setString(1, usu.getNome());
+            st.setString(2, usu.getEmail());
+           st.setString(3, usu.getSenha());
+            st.setString(4, usu.getTipo());
+             st.setString(5, usu.getDataCadastro());
             status = st.executeUpdate();
             return status; // Retorna 1 se for bem-sucedido
         } catch (SQLException ex) {
@@ -69,7 +65,7 @@ public class UsuarioDAO {
                 usu.setEmail(rs.getString("email"));
                usu.setSenha(rs.getString("senha"));
                usu.setTipo(rs.getString("tipo"));
-               usu.setDataCadastro(rs.getString("data cadastro"));
+               usu.setDataCadastro(rs.getString("data_cadastro"));
                 return usu;
             } else {
                 return null; // Retorna null se não encontrar o filme
@@ -104,7 +100,7 @@ public class UsuarioDAO {
                 usu.setEmail(rs.getString("email"));
                usu.setSenha(rs.getString("senha"));
                usu.setTipo(rs.getString("tipo"));
-               usu.setDataCadastro(rs.getString("data cadastro"));
+               usu.setDataCadastro(rs.getString("data_cadastro"));
 
                 listaUsu.add(usu);
             }
