@@ -36,7 +36,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
         jPanel1.setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 36)); // NOI18N
@@ -52,12 +52,27 @@ public class TelaInicial extends javax.swing.JFrame {
 
         btnprof.setBackground(new java.awt.Color(255, 102, 0));
         btnprof.setText("PROFESSOR");
+        btnprof.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnprofActionPerformed(evt);
+            }
+        });
 
         btncad.setBackground(new java.awt.Color(255, 102, 0));
         btncad.setText("CADASTRO USUÁRIO");
+        btncad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncadActionPerformed(evt);
+            }
+        });
 
         btnpes.setBackground(new java.awt.Color(255, 102, 0));
         btnpes.setText("PESQUISAR USUÁRIO");
+        btnpes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,9 +128,23 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void btnalunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalunoActionPerformed
          TelaAluno alu = new TelaAluno();
-         //Mostrando o form quando clicar no botão
          alu.setVisible(true);
     }//GEN-LAST:event_btnalunoActionPerformed
+
+    private void btnprofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprofActionPerformed
+         TelaProfessor alu = new TelaProfessor();
+         alu.setVisible(true);
+    }//GEN-LAST:event_btnprofActionPerformed
+
+    private void btncadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadActionPerformed
+        TelaUsuario alu = new TelaUsuario();
+         alu.setVisible(true);
+    }//GEN-LAST:event_btncadActionPerformed
+
+    private void btnpesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesActionPerformed
+         TelaPesUsuario alu = new TelaPesUsuario();
+         alu.setVisible(true);
+    }//GEN-LAST:event_btnpesActionPerformed
 
     /**
      * @param args the command line arguments

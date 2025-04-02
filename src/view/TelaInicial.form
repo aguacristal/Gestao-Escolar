@@ -36,7 +36,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="cc" red="ff" type="rgb"/>
+          <Color blue="66" green="cc" red="ff" type="rgb"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
@@ -115,6 +115,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PROFESSOR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnprofActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btncad">
           <Properties>
@@ -123,6 +126,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="CADASTRO USU&#xc1;RIO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncadActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnpes">
           <Properties>
@@ -131,6 +137,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PESQUISAR USU&#xc1;RIO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpesActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
