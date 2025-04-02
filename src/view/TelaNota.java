@@ -44,6 +44,7 @@ public class TelaNota extends javax.swing.JFrame {
         txtmateria = new javax.swing.JTextField();
         btncad = new javax.swing.JButton();
         btnvol = new javax.swing.JButton();
+        btnpes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +89,14 @@ public class TelaNota extends javax.swing.JFrame {
             }
         });
 
+        btnpes.setBackground(new java.awt.Color(255, 153, 0));
+        btnpes.setText("PESQUISAR");
+        btnpes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -109,15 +118,18 @@ public class TelaNota extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtdata, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btncad)
-                                        .addGap(76, 76, 76)
-                                        .addComponent(btnvol))
-                                    .addComponent(txtnota, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnpes)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(15, 15, 15)
+                                            .addComponent(btnvol)
+                                            .addGap(118, 118, 118)
+                                            .addComponent(btncad))
+                                        .addComponent(txtnota, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jLabel1)))
@@ -144,10 +156,12 @@ public class TelaNota extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtnota))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnpes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btncad)
-                    .addComponent(btnvol))
+                    .addComponent(btnvol)
+                    .addComponent(btncad))
                 .addGap(31, 31, 31))
         );
 
@@ -204,6 +218,11 @@ public class TelaNota extends javax.swing.JFrame {
          alu.setVisible(true);
     }//GEN-LAST:event_btnvolActionPerformed
 
+    private void btnpesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesActionPerformed
+        TelaPesNota Pn = new TelaPesNota();
+        Pn.setVisible(true);
+    }//GEN-LAST:event_btnpesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +260,7 @@ public class TelaNota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncad;
+    private javax.swing.JButton btnpes;
     private javax.swing.JButton btnvol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
