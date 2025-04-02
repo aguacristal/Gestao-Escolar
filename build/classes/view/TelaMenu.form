@@ -51,31 +51,34 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnmateria" min="-2" pref="342" max="-2" attributes="0"/>
-                              <Component id="btnaula" min="-2" pref="342" max="-2" attributes="0"/>
-                              <Component id="btnnota" alignment="0" min="-2" pref="342" max="-2" attributes="0"/>
-                              <Component id="btnrecuperacao" alignment="0" min="-2" pref="342" max="-2" attributes="0"/>
-                              <Component id="btnprofessor" alignment="0" min="-2" pref="342" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="btnmateria" min="-2" pref="342" max="-2" attributes="0"/>
+                      <Component id="btnaula" min="-2" pref="342" max="-2" attributes="0"/>
+                      <Component id="btnnota" alignment="0" min="-2" pref="342" max="-2" attributes="0"/>
+                      <Component id="btnrecuperacao" alignment="0" min="-2" pref="342" max="-2" attributes="0"/>
+                      <Component id="btnprofessor" alignment="0" min="-2" pref="342" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="68" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnvoltar" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnvoltar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnaula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -129,6 +132,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="NOTA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnotaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnrecuperacao">
           <Properties>
@@ -137,6 +143,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="RECUPERA&#xc7;&#xc3;O"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnrecuperacaoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnprofessor">
           <Properties>
@@ -145,6 +154,17 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PROFESSOR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnprofessorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnvoltar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="VOLTAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnvoltarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

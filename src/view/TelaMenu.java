@@ -34,6 +34,7 @@ public class TelaMenu extends javax.swing.JFrame {
         btnnota = new javax.swing.JButton();
         btnrecuperacao = new javax.swing.JButton();
         btnprofessor = new javax.swing.JButton();
+        btnvoltar = new javax.swing.JButton();
 
         jButton5.setText("jButton5");
 
@@ -62,37 +63,62 @@ public class TelaMenu extends javax.swing.JFrame {
 
         btnnota.setBackground(new java.awt.Color(255, 153, 0));
         btnnota.setText("NOTA");
+        btnnota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnotaActionPerformed(evt);
+            }
+        });
 
         btnrecuperacao.setBackground(new java.awt.Color(255, 153, 0));
         btnrecuperacao.setText("RECUPERAÇÃO");
+        btnrecuperacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrecuperacaoActionPerformed(evt);
+            }
+        });
 
         btnprofessor.setBackground(new java.awt.Color(255, 153, 0));
         btnprofessor.setText("PROFESSOR");
+        btnprofessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnprofessorActionPerformed(evt);
+            }
+        });
+
+        btnvoltar.setText("VOLTAR");
+        btnvoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnaula, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnnota, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnrecuperacao, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnprofessor, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btnmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnaula, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnnota, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnrecuperacao, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnprofessor, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(68, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnvoltar))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1))
+                    .addComponent(btnvoltar))
                 .addGap(18, 18, 18)
                 .addComponent(btnaula)
                 .addGap(18, 18, 18)
@@ -131,6 +157,26 @@ public class TelaMenu extends javax.swing.JFrame {
          //Mostrando o form quando clicar no botão
          alu.setVisible(true);
     }//GEN-LAST:event_btnmateriaActionPerformed
+
+    private void btnvoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvoltarActionPerformed
+        TelaInicial ini = new TelaInicial();
+        ini.setVisible(true);
+    }//GEN-LAST:event_btnvoltarActionPerformed
+
+    private void btnnotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnotaActionPerformed
+       TelaNota ini = new TelaNota();
+        ini.setVisible(true);
+    }//GEN-LAST:event_btnnotaActionPerformed
+
+    private void btnrecuperacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrecuperacaoActionPerformed
+       TelaRecuperacao ini = new TelaRecuperacao();
+        ini.setVisible(true);
+    }//GEN-LAST:event_btnrecuperacaoActionPerformed
+
+    private void btnprofessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprofessorActionPerformed
+       TelaProfessor ini = new TelaProfessor();
+        ini.setVisible(true);
+    }//GEN-LAST:event_btnprofessorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +219,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnnota;
     private javax.swing.JButton btnprofessor;
     private javax.swing.JButton btnrecuperacao;
+    private javax.swing.JButton btnvoltar;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
