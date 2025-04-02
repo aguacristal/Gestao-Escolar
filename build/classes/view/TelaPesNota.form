@@ -109,12 +109,20 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomeAluno">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="66" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtNomeAlunoCaretUpdate"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnvoltar">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="66" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="VOLTAR"/>
           </Properties>
           <Events>
@@ -123,6 +131,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnpesq">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="PESQUISAR"/>
           </Properties>
           <Events>

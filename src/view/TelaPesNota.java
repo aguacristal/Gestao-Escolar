@@ -85,12 +85,14 @@ public class TelaPesNota extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("NOME:");
 
+        txtNomeAluno.setBackground(new java.awt.Color(255, 102, 0));
         txtNomeAluno.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtNomeAlunoCaretUpdate(evt);
             }
         });
 
+        btnvoltar.setBackground(new java.awt.Color(255, 102, 0));
         btnvoltar.setText("VOLTAR");
         btnvoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +100,7 @@ public class TelaPesNota extends javax.swing.JFrame {
             }
         });
 
+        btnpesq.setBackground(new java.awt.Color(255, 153, 0));
         btnpesq.setText("PESQUISAR");
         btnpesq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

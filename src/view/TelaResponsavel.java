@@ -94,6 +94,11 @@ public class TelaResponsavel extends javax.swing.JFrame {
 
         btnvol.setBackground(new java.awt.Color(255, 153, 0));
         btnvol.setText("VOLTAR");
+        btnvol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnvol, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,6 +163,12 @@ public class TelaResponsavel extends javax.swing.JFrame {
     private void txtusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtusuActionPerformed
+
+    private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
+     TelaAluno alu = new TelaAluno();
+     alu.setVisible(true);
+
+    }//GEN-LAST:event_btnvolActionPerformed
 
     /**
      * @param args the command line arguments
