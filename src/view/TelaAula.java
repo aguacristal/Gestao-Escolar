@@ -83,6 +83,11 @@ public class TelaAula extends javax.swing.JFrame {
 
         btnvol.setBackground(new java.awt.Color(255, 153, 0));
         btnvol.setText("VOLTAR");
+        btnvol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolActionPerformed(evt);
+            }
+        });
 
         btncad.setBackground(new java.awt.Color(255, 153, 0));
         btncad.setText("CADASTRAR");
@@ -213,6 +218,11 @@ public class TelaAula extends javax.swing.JFrame {
             dao.desconectar();
         }
     }//GEN-LAST:event_btncadActionPerformed
+
+    private void btnvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolActionPerformed
+       TelaMenu men = new TelaMenu();
+       men.setVisible(true);
+    }//GEN-LAST:event_btnvolActionPerformed
 
     /**
      * @param args the command line arguments
